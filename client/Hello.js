@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import Counter from '/lib/collections/counter.js';
+import useSubscription from '/lib/useSubscription.js';
+import useTracker from '/lib/useTracker.js';
 
 const Hello = (props) => {
   const [ counter, setCounter ] = useState(0);
-  const increment = () => setCounter(counter + 1);
+  const ready = useSubscription('counter');
+  const counts = useTracker(() => Counter.find().fetch());
+  console.log(ready, counts);
 
   return (
     <div>

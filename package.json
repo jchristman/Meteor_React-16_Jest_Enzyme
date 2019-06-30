@@ -25,9 +25,20 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
+    "jest-meteor-stubs": "^1.5.1",
     "react-test-renderer": "^16.8.6"
   },
   "jest": {
-    "setupFilesAfterEnv": [ "./setupTests.js" ]
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "meteor/(.*)": "<rootDir>/tests/mocks/$1.js",
+      "^\\/lib\\/(.*)$": "<rootDir>/lib/$1"
+    },
+    "modulePaths": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/node_modules/jest-meteor-stubs/lib/"
+    ]
   }
 }
