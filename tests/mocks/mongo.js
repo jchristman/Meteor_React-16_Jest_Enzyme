@@ -1,5 +1,5 @@
-module.exports = {
-  Mongo: {
-    Collection: jest.fn()
-  }
+export const Mongo = {
+  Collection: jest.fn().mockImplementation(() => ({
+    _ensureIndex: (jest.fn()),
+  }))
 };

@@ -1,5 +1,4 @@
-module.exports = {
-  Tracker: {
-    nonreactive: jest.fn()
-  }
+export const Tracker = {
+  autorun: jest.fn(),
+  nonreactive: jest.fn()
 };
