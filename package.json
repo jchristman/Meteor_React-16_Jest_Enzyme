@@ -4,6 +4,7 @@
   "scripts": {
     "start": "meteor run",
     "test": "jest --watchAll --verbose",
+    "coverage": "jest --coverage --verbose",
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
@@ -34,6 +35,11 @@
     "moduleNameMapper": {
       "^\\/lib\\/(.*)$": "<rootDir>/lib/$1",
       "^meteor/(.*)$": "<rootDir>/tests/mocks/$1"
-    }
+    },
+    "collectCoverageFrom": [
+      "client/**",
+      "lib/**",
+      "server/**"
+    ]
   }
 }
