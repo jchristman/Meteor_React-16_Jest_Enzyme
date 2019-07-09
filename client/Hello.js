@@ -8,7 +8,10 @@ const increment = () => Meteor.call('incrementCounter');
 
 const Hello = (props) => {
   const ready = useSubscription('counter');
-  const counts = useTracker(() => Counter.find().fetch());
+  const counts = useTracker(
+    /* istanbul ignore next */
+    () => Counter.find().fetch()
+  );
 
   if (counts.length === 0) return ( <div>Loading</div> );
 

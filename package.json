@@ -39,7 +39,8 @@
     "collectCoverageFrom": [
       "client/**",
       "lib/**",
-      "server/**"
+      "server/**",
+      "!**/main.js"
     ]
   }
 }
