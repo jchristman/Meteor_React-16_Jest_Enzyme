@@ -1,18 +1,19 @@
-let subscriptionReady = false;
-let usersQueryResult = [];
-
-export const __setUsersQueryResult = (val) => usersQueryResult = val;
-export const __setSubscriptionReady = (val) => subscriptionReady = val;
+import { Mongo } from 'meteor/mongo';
 
 export const Meteor = {
-  users: {
-    findOne: jest.fn().mockImplementation(() => usersQueryResult),
-    find: jest.fn().mockImplementation(() => ({
-      fetch: jest.fn().mockReturnValue(usersQueryResult),
-      count: jest.fn(),
-    })),
-  },
-  subscribe: jest.fn().mockImplementation(() => ({
-    ready: jest.fn().mockReturnValue(subscriptionReady)
-  }))
+  isServer: true,
+  loginWithPassword: jest.fn(),
+  loginWithFacebook: jest.fn(),
+  methods: jest.fn(),
+  call: jest.fn(),
+  callPromise: jest.fn(),
+  publish: jest.fn(),
+  subscribe: jest.fn(),
+  user: jest.fn(),
+  users: new Mongo.Collection(),
+  userId: jest.fn().mockReturnValue('f00bar'),
+  startup: jest.fn(init => init),
+  bindEnvironment: jest.fn(),
+  wrapAsync: jest.fn(function(f) { return f; }),
+  Error: jest.fn(Error),
 };

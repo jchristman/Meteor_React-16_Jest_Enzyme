@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "test": "jest --watchAll",
+    "test": "jest --watchAll --verbose",
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
